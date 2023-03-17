@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Main from './pages/Main';
+import Begin from './pages/Begin';
+import React, { useState } from 'react';
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from "react-router-dom";
+
+const Context = React.createContext();
 
 function App() {
+  const [score, setScore] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Colors
-        </a>
-      </header>
-    </div>
+    <Context.Provider value = {{
+      counter: [score, setScore],
+      pickColor: pickColor
+    }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/begin" element={<Begin/>}/>
+          <Route path="/" element={<Main/>}/>
+        </Routes>
+      </BrowserRouter>
+    </Context.Provider>
   );
 }
 
+function pickColor() {
+
+}
+
+export {Context}
 export default App;
