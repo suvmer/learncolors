@@ -10,7 +10,7 @@ const Main = () => {
       <Palette/>
       <div>
       <h1>LEARN COLORS</h1>
-      <h3>Узнай необычные цвета</h3>
+      <h3>Узнавай необычные цвета</h3>
       </div>
       
       <Link to="/begin"><a className="button">Начать</a></Link>
