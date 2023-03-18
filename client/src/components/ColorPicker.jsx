@@ -14,7 +14,7 @@ const ColorPicker = () => {
       
         </div>
         <div className='list'>
-        {task.list.map((element, ind) => <div key={ind} style={{backgroundColor: back ? element[0] : "transparent"}} onClick={() => onClickVariant(ind)} className='button small'>{element[1]}</div>)}
+        {task.list.map((element, ind) => <div key={ind} style={{backgroundColor: back ? element[0] : "#61dafb00"}} onClick={() => onClickVariant(ind)} className='button small'>{element[1]}</div>)}
         </div>
         <div className='list'>
         <div onClick={goBack} className='button small'>Назад</div>
