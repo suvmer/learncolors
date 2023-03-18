@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Context } from '../App';
 
 const ColorPicker = () => {
-  const {steps, tasks, onClickVariant} = useContext(Context);
+  const {steps, tasks, onClickVariant, goBack} = useContext(Context);
   const task = tasks[steps[0]];
   console.log("this is", task);
   return (
@@ -11,7 +11,11 @@ const ColorPicker = () => {
         {task.list[task.correct][1]}
         </div>
         <div className='list'>
-        {task.list.map((element, ind) => <div key={ind} onClick={() => onClickVariant(ind)} className='button'>{element[1]}</div>)}
+        {task.list.map((element, ind) => <div key={ind} onClick={() => onClickVariant(ind)} className='button small'>{element[1]}</div>)}
+        </div>
+        <div className='list'>
+        <div onClick={goBack} className='button small'>Назад</div>
+        <div onClick={() => onClickVariant(-1)} className='button small'>Вперёд</div>
         </div>
     </>
   );

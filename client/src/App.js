@@ -87,11 +87,14 @@ function App() {
     setStep((step+1)%tasks.length);
   }
 
+  const goBack = () => setStep((step-1+tasks.length)%tasks.length);
+
   return (
     <Context.Provider value = {{
       counter: [score, setScore],
       steps: [step, setStep],
       onClickVariant: onClickVariant,
+      goBack: goBack,
       pickColor: pickColor,
       tasks: tasks
     }}>

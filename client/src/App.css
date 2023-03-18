@@ -74,6 +74,9 @@ h3 {
 .button:active {
   background-color: #61dafb5e;
 }
+.button.small {
+  font-size: 24px;
+}
 
 @keyframes App-logo-spin {
   from {
