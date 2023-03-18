@@ -10,7 +10,7 @@ const Begin = () => {
       <Counter/>
       <h1>Приступим</h1>
       <h3>Какой это цвет?</h3>
-      <ColorPicker color="#ffee55" list={["#ffee55", "#eeff55", "#55ffee", "#55eeff"]}/>
+      <ColorPicker />
       
     </div>
   );

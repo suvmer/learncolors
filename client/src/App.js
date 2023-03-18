@@ -12,10 +12,34 @@ const Context = React.createContext();
 
 function App() {
   const [score, setScore] = useState(0);
+  const [step, setStep] = useState(0);
+
+  const tasks = [
+      {
+        color: "#ffee55",
+        list: ["#ffee55", "олег", "#55ffee", "четыре"],
+        correct: 0
+      },
+      {
+        color: "#55ffee",
+        list: ["aboba", "#ffee55", "#55ffee", "nice"],
+        correct: 1
+      }
+    ];
+
+  const onClickVariant = (index) => {
+    if(index == tasks[step].correct)
+      setScore(score+1);
+    setStep(step+1);
+  }
+
   return (
     <Context.Provider value = {{
       counter: [score, setScore],
-      pickColor: pickColor
+      steps: [step, setStep],
+      onClickVariant: onClickVariant,
+      pickColor: pickColor,
+      tasks: tasks
     }}>
       <BrowserRouter>
         <Routes>

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../App';
 
-const ColorPicker = ({color, list}) => {
-
+const ColorPicker = () => {
+  const {steps, tasks, onClickVariant} = useContext(Context);
+  const task = tasks[steps[0]];
   return (
     <>
-        <div className="colorBox" style={{backgroundColor: color}}>
+        <div className="colorBox" style={{backgroundColor: task.color}}>
 
         </div>
         <div className='list'>
-        {list.map(element => <div className='button'>{element}</div>)}
+        {task.list.map((element, ind) => <div onClick={() => onClickVariant(ind)} className='button'>{element}</div>)}
         </div>
     </>
   );
