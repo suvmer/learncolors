@@ -7,11 +7,11 @@ const ColorPicker = () => {
   console.log("this is", task);
   return (
     <>
-        <div className="colorBox" style={{backgroundColor: task.list[task.correct]}}>
-
+        <div className="colorBox" style={{backgroundColor: task.list[task.correct][0]}}>
+        {task.list[task.correct][1]}
         </div>
         <div className='list'>
-        {task.list.map((element, ind) => <div key={ind} onClick={() => onClickVariant(ind)} className='button'>{element}</div>)}
+        {task.list.map((element, ind) => <div key={ind} onClick={() => onClickVariant(ind)} className='button'>{element[1]}</div>)}
         </div>
     </>
   );
