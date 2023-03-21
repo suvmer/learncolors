@@ -14,7 +14,7 @@ const ColorPicker = () => {
         </div>
         <div className='list' style={{cursor: answers[steps[0]] == -1 ? 'default' : 'not-allowed'}}>
         {task.list.map((element, ind) => <div key={ind} style={{backgroundColor: back ? element[0] : "#61dafb00", pointerEvents: answers[steps[0]] == -1 ? 'all' : 'none'}} onClick={
-          () => onClickVariant(ind)} className={`button small ${answers[steps[0]] == ind ? 'high' : ''}`}>{element[1]}</div>)
+          () => onClickVariant(ind)} className={`button small ${answers[steps[0]] == ind ? (ind == task.correct ? 'green' : 'red') : ''}`}>{element[1]}</div>)
           }
         </div>
         <div className='list'>

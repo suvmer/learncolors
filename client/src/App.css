@@ -67,8 +67,11 @@ h3 {
   border-radius: 40px;
   cursor: pointer;
 }
-.button.high {
-  background-color: #61dafb20!important;
+.button.green {
+  background-color: #00ff0060!important;
+}
+.button.red {
+  background-color: #ff000060!important;
 }
 .button:hover {
   background-color: #61dafb20!important;
