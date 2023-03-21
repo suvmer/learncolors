@@ -7,7 +7,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import {namedColors} from './media/colors';
+import { generateTasks } from './utils/utils';
 
 const Context = React.createContext();
 
@@ -32,7 +32,7 @@ Array.prototype.random = function () {
 
 
 
-var tasks = [];
+var tasks = [], answers = [];
 
 function App() {
   const [score, setScore] = useState(0);
@@ -40,26 +40,22 @@ function App() {
 
   
   useMemo( () => {
-    const generateTasks = (tasksCount, answersCount) => {
-      for(let i = 0; i < tasksCount; i++) {
-        const answ = [];
-        for(var j = 0; j < answersCount; j++)
-          answ.push(namedColors.random());
-        tasks.push({
-          list: answ,
-          correct: Math.floor((Math.random()*answ.length))
-        });
-
-      }
-    }
-    generateTasks(20, 3)
-
+    tasks = generateTasks(20, 3);
+    answers = Array(tasks.length).fill(-1);
   }, []);
+  
+  
+  
 
   const onClickVariant = (index) => {
-    if(index == tasks[step].correct)
-      setScore(score+1);
+    if(answers[step] == -1) {
+      answers[step] = index;
+      if(index == tasks[step].correct)
+        setScore(score+1);
+    }
+
     setStep((step+1)%tasks.length);
+    console.log(answers);
   }
 
   const goBack = () => setStep((step-1+tasks.length)%tasks.length);
@@ -70,8 +66,8 @@ function App() {
       steps: [step, setStep],
       onClickVariant: onClickVariant,
       goBack: goBack,
-      pickColor: pickColor,
-      tasks: tasks
+      tasks: tasks,
+      answers: answers
     }}>
       <BrowserRouter>
         <Routes>
@@ -83,9 +79,6 @@ function App() {
   );
 }
 
-function pickColor() {
-
-}
 
 export {Context}
 export default App;

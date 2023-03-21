@@ -2,19 +2,19 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../App';
 
 const ColorPicker = () => {
-  const {steps, tasks, onClickVariant, goBack/*, answers*/} = useContext(Context);
+  const {steps, tasks, onClickVariant, goBack, answers} = useContext(Context);
   const task = tasks[steps[0]];
   const [tip, setTip] = useState("Ответ");
   const [back, setBack] = useState(false);
-  console.log("this is {`button small ${answers[0][steps[0]] == ind ? 'high' : ''}`}", task);
+  console.log("this is ", task);
   return (
     <>
         <div className="colorBox" style={{backgroundColor: task.list[task.correct][0]}}>
       
         </div>
-        <div className='list'>
-        {task.list.map((element, ind) => <div key={ind} style={{backgroundColor: back ? element[0] : "#61dafb00"}} onClick={
-          () => onClickVariant(ind)} className='button small'>{element[1]}</div>)
+        <div className='list' style={{cursor: answers[steps[0]] == -1 ? 'default' : 'not-allowed'}}>
+        {task.list.map((element, ind) => <div key={ind} style={{backgroundColor: back ? element[0] : "#61dafb00", pointerEvents: answers[steps[0]] == -1 ? 'all' : 'none'}} onClick={
+          () => onClickVariant(ind)} className={`button small ${answers[steps[0]] == ind ? 'high' : ''}`}>{element[1]}</div>)
           }
         </div>
         <div className='list'>

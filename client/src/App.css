@@ -42,7 +42,7 @@
 .list {
   display: flex;
   gap: 20px;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .counter {
@@ -67,6 +67,9 @@ h3 {
   border-radius: 40px;
   cursor: pointer;
 }
+.button.high {
+  background-color: #61dafb20!important;
+}
 .button:hover {
   background-color: #61dafb20!important;
   transition: background-color 0.1s;
@@ -75,7 +78,7 @@ h3 {
   background-color: #61dafb5e!important;
 }
 .button.small {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 @keyframes App-logo-spin {
