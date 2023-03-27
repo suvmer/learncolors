@@ -3,7 +3,7 @@ import { Context } from '../App';
 
 const Counter = () => {
   const {counter, steps, tasks} = useContext(Context);
-  console.log(tasks)
+  console.log(tasks);
   return (
     <div className="counter">
        Очков: <mark className='yellow'>{counter[0]}</mark>

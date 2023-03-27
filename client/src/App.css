@@ -42,7 +42,7 @@
 .list {
   display: flex;
   gap: 20px;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 .counter {
@@ -67,28 +67,16 @@ h3 {
   border-radius: 40px;
   cursor: pointer;
 }
-.button.green {
-  background-color: #00ff0060!important;
-}
-.button.red {
-  background-color: #ff000060!important;
-}
 .button:hover {
-  background-color: #61dafb20!important;
-  transition: background-color 0.1s;
+  background-color: #61dafb20;
+  transition: background-color 0.2s;
 }
 .button:active {
-  background-color: #61dafb5e!important;
+  background-color: #61dafb5e;
+}
+.button.small {
+  font-size: 24px;
+rtant;
 }
 .button.small {
   font-size: 20px;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
