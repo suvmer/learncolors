@@ -37,19 +37,25 @@ var tasks = [], answers = [];
 function App() {
   const [score, setScore] = useState(0);
   const [step, setStep] = useState(0);
-
+  const [tasks, setTasks] = useState(0);
+  const [answers, setAnswers] = useState(0);
   
   useMemo( () => {
-    tasks = generateTasks(20, 3);
-    answers = Array(tasks.length).fill(-1);
+    setTasks(generateTasks(20, 3));
+    setAnswers(Array(tasks.length).fill(-1));
   }, []);
   
   
   
 
   const onClickVariant = (index) => {
+
     if(answers[step] == -1) {
-      answers[step] = index;
+      setAnswers(answers.map((el, i) => { //answers[step] = index;
+        if(i == step)
+          return index;
+        return el;
+      }));
       if(index == tasks[step].correct)
         setScore(score+1);
     }
