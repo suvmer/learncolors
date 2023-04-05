@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
-import { Context } from '../App';
+import { useSelector } from 'react-redux';
 
 const Counter = () => {
-  const {counter, steps, tasks} = useContext(Context);
-  console.log(tasks);
+  const game = useSelector(state => state.game);
   return (
     <div className="counter">
-       Очков: <mark className='yellow'>{counter[0]}</mark>
-       <p>Уровень: <mark className='yellow'>{steps[0]+1}/{tasks.length}</mark></p>
+       Очков: <mark className='yellow'>{game.score}</mark>
+       <p>Уровень: <mark className='yellow'>{game.step+1}/{game.questions.length}</mark></p>
     </div>
   );
 }

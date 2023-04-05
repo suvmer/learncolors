@@ -14,12 +14,16 @@ export const gameReducer = (state = defaultState, action) => {
         case "INITIALIZE":
             return action.payload;
         case "ANSWER":
-            return {...state, answers: state.answers.map((el, i) => {
+            return {...state, step: Math.min(state.answers.length-1, state.step+1), answers: state.answers.map((el, i) => {
                 if(i == state.step)
                   return action.payload;
                 return el;
               })};
+        case "CHANGESCORE":
+            return {...state, score: action.payload};
         case "CHANGEPAGE":
-            return {...state, step: (Math.min(Math.max(0, step + payload.action), questions.length))};
+            return {...state, step: (Math.min(Math.max(0, state.step + action.payload), state.questions.length))};
+        default:
+            return state;
     }
 }

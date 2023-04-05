@@ -66,9 +66,16 @@ h3 {
   border: 3px solid #61dafb;
   border-radius: 40px;
   cursor: pointer;
+  user-select: none;
+}
+.button.green {
+  background-color: #00ff0060!important;
+}
+.button.red {
+  background-color: #ff000060!important;
 }
 .button:hover {
-  background-color: #61dafb20;
+  background-color: #61dafb20!important;
   transition: background-color 0.2s;
 }
 .button:active {

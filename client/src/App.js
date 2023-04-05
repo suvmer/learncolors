@@ -3,7 +3,7 @@ import Main from './pages/Main';
 import Begin from './pages/Begin';
 import React, { useEffect, useMemo, useState } from 'react';
 import { generateTasks } from './utils/utils';
-import {useDispatch, useSelector} from "resct-redux"; 
+import {useDispatch, useSelector} from "react-redux"; 
 
 function initializeGameAction(tasks = 10, answers = 3) {
   return {
@@ -12,7 +12,7 @@ function initializeGameAction(tasks = 10, answers = 3) {
       step: 0,
       score: 0,
       isStarted: false, //for start info modal
-      isInitialized: false,
+      isInitialized: true,
       questions: generateTasks(tasks, answers),
       answers: Array(tasks).fill(-1)
     }

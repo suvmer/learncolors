@@ -5,8 +5,8 @@ const Palette = () => {
     <div className="palette">
         <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
         <linearGradient id="my-cool-gradient" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ffff00" />
-            <stop offset="100%" stop-color="#61dafb" />
+            <stop offset="0%" stopColor="#ffff00" />
+            <stop offset="100%" stopColor="#61dafb" />
         </linearGradient>
         <path d="M171.583,234.5a80.466,80.466,0,0,0-38.875,68.628,6,6,0,0,0,12,0,67.518,67.518,0,0,1,33.051-58.34,6,6,0,1,0-6.176-10.288Z"/>
         <path d="M193.781,225.385a6,6,0,1,0,2.828,11.662,68.326,68.326,0,0,1,16.091-1.914,6,6,0,0,0,0-12A80.346,80.346,0,0,0,193.781,225.385Z"/>

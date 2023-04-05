@@ -6,3 +6,9 @@ const defaultState = {
     isLoaded: false //for waitng server responce(or offile mode(check v3.0 desc in info.txt))
 };
 
+export const profileReducer = (state = defaultState, action) => {
+    switch(action.type) {
+        default:
+            return state;
+    }
+}
