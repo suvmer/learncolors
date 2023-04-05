@@ -6,7 +6,6 @@ const ColorPicker = () => {
   const task = tasks[steps[0]];
   const [tip, setTip] = useState("Ответ");
   const [back, setBack] = useState(false);
-  console.log("this is ", task);
   return (
     <>
         <div className="colorBox" style={{backgroundColor: task.list[task.correct][0]}}>

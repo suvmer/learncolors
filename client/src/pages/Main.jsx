@@ -1,5 +1,5 @@
 import React from 'react';
-import Palette from '../media/palette.jsx';
+import Palette from '../resources/palette.jsx';
 import {Link} from "react-router-dom";
 
 const Main = () => {

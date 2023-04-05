@@ -1,4 +1,4 @@
-import {namedColors} from '../media/colors';
+import {namedColors} from '../resources/colors';
 
 const generateTasks = (tasksCount, answersCount) => {
     const tasks = [];
