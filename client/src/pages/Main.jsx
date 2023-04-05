@@ -1,10 +1,14 @@
 import React from 'react';
 import Palette from '../resources/palette.jsx';
 import {Link} from "react-router-dom";
+import { initializeGameAction } from '../App.js';
+import {useDispatch, useSelector} from "resct-redux"; 
+
 
 const Main = () => {
 
-    
+  const dispatch = useDispatch();
+  
   return (
     <div className="main">
       <Palette/>
@@ -13,7 +17,7 @@ const Main = () => {
       <h3>Узнавай необычные цвета</h3>
       </div>
       
-      <Link to="/begin"><a className="button">Начать</a></Link>
+      <a onClick={dispatch(initializeGameAction)} className="button">Начать</a>
     </div>
   );
 }

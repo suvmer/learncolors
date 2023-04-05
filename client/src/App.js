@@ -2,37 +2,8 @@ import './App.css';
 import Main from './pages/Main';
 import Begin from './pages/Begin';
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  BrowserRouter,
-  Route,
-  Routes
-} from "react-router-dom";
 import { generateTasks } from './utils/utils';
 import {useDispatch, useSelector} from "resct-redux"; 
-
-
-const Context = React.createContext();
-
-Array.prototype.random = function () {
-  return this[Math.floor((Math.random()*this.length))];
-}
-
-
-/* TODO: TIPS:
-ВАЖНАЯ ИНФА ПО ПОВОДУ ПРОЕКТА:
-Это не просто игра.
-Возможное использование:
-1) Медицинские показания
-2) Для дальтоников(запомнить цвета)
-3) После операции на хрусталике(они видят ярко или тёмно, для восстановления цвета)
-4) Узнать необычные цвета(слоган)
-
-
-*/
-
-
-
-
 
 function initializeGameAction(tasks = 10, answers = 3) {
   return {
@@ -49,19 +20,7 @@ function initializeGameAction(tasks = 10, answers = 3) {
 }
 
 function App() {
-  const [score, setScore] = useState(0);
-  const [step, setStep] = useState(0);
-  /*const [tasks, setTasks] = useState(0);
-  const [answers, setAnswers] = useState(0);
-  
-  useMemo( () => {
-    setTasks(generateTasks(20, 3));
-    setAnswers(Array(tasks.length).fill(-1));
-  }, []);
-  */
-  
-  
-
+ 
   /*const onClickVariant = (index) => {
 
     if(answers[step] == -1) {
@@ -80,21 +39,7 @@ function App() {
 
   const goBack = () => setStep((step-1+tasks.length)%tasks.length);*/
 
-  const dispatch = useDispatch();
-
-  
-
-
-  const game = useSelector(state => state.game);
-  
-
-
-
-
-
-
-
-  
+  const game = useSelector(state => state.game);  
 
 /*
 <Context.Provider value = {{
@@ -109,8 +54,8 @@ function App() {
 
   return (
     game.isInitialized ?
-      <Main/> :
-      <Begin/>
+      <Begin/> :
+      <Main/>
   );
 }
 
