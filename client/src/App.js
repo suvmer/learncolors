@@ -8,6 +8,8 @@ import {
   Routes
 } from "react-router-dom";
 import { generateTasks } from './utils/utils';
+import {useDispatch, useSelector} from "resct-redux"; 
+
 
 const Context = React.createContext();
 
@@ -32,23 +34,35 @@ Array.prototype.random = function () {
 
 
 
-var tasks = [], answers = [];
+function initializeGameAction(tasks = 10, answers = 3) {
+  return {
+    type: "INITIALIZE",
+    payload: {
+      step: 0,
+      score: 0,
+      isStarted: false, //for start info modal
+      isInitialized: false,
+      questions: generateTasks(tasks, answers),
+      answers: Array(tasks).fill(-1)
+    }
+  };
+}
 
 function App() {
   const [score, setScore] = useState(0);
   const [step, setStep] = useState(0);
-  const [tasks, setTasks] = useState(0);
+  /*const [tasks, setTasks] = useState(0);
   const [answers, setAnswers] = useState(0);
   
   useMemo( () => {
     setTasks(generateTasks(20, 3));
     setAnswers(Array(tasks.length).fill(-1));
   }, []);
-  
+  */
   
   
 
-  const onClickVariant = (index) => {
+  /*const onClickVariant = (index) => {
 
     if(answers[step] == -1) {
       setAnswers(answers.map((el, i) => { //answers[step] = index;
@@ -64,10 +78,26 @@ function App() {
     console.log(answers);
   }
 
-  const goBack = () => setStep((step-1+tasks.length)%tasks.length);
+  const goBack = () => setStep((step-1+tasks.length)%tasks.length);*/
 
-  return (
-    <Context.Provider value = {{
+  const dispatch = useDispatch();
+
+  
+
+
+  const game = useSelector(state => state.game);
+  
+
+
+
+
+
+
+
+  
+
+/*
+<Context.Provider value = {{
       counter: [score, setScore],
       steps: [step, setStep],
       onClickVariant: onClickVariant,
@@ -75,16 +105,15 @@ function App() {
       tasks: tasks,
       answers: answers
     }}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/begin" element={<Begin/>}/>
-          <Route path="/" element={<Main/>}/>
-        </Routes>
-      </BrowserRouter>
-    </Context.Provider>
+*/
+
+  return (
+    game.isInitialized ?
+      <Main/> :
+      <Begin/>
   );
 }
 
 
-export {Context}
+export {initializeGameAction}
 export default App;

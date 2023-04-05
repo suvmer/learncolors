@@ -1,11 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../App';
+import {useDispatch, useSelector} from "resct-redux"; 
 
 const ColorPicker = () => {
   const {steps, tasks, onClickVariant, goBack, answers} = useContext(Context);
   const task = tasks[steps[0]];
   const [tip, setTip] = useState("Ответ");
   const [back, setBack] = useState(false);
+
+  const dispatch = useDispatch();
+
+
+
+
+  const selectAnswer = (index) => {
+    
+  }
+
+
   return (
     <>
         <div className="colorBox" style={{backgroundColor: task.list[task.correct][0]}}>
