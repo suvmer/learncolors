@@ -21,8 +21,10 @@ export const gameReducer = (state = defaultState, action) => {
               })};
         case "CHANGESCORE":
             return {...state, score: action.payload};
+        case "STARTGAME":
+            return {...state, isStarted: true};
         case "CHANGEPAGE":
-            return {...state, step: (Math.min(Math.max(0, state.step + action.payload), state.questions.length))};
+            return {...state, step: (Math.min(Math.max(0, state.step + action.payload), state.questions.length-1))};
         default:
             return state;
     }
