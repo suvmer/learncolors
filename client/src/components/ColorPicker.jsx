@@ -18,9 +18,6 @@ const ColorPicker = () => {
   const [tip, setTip] = useState("Ответ");
   const [back, setBack] = useState(false);
 
-
-
-
   const selectAnswer = (index) => {
      if(game.answers[game.step] == -1) {
       if(index == game.questions[game.step].correct) {

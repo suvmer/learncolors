@@ -20,38 +20,7 @@ function initializeGameAction(tasks = 10, answers = 3) {
 }
 
 function App() {
- 
-  /*const onClickVariant = (index) => {
-
-    if(answers[step] == -1) {
-      setAnswers(answers.map((el, i) => { //answers[step] = index;
-        if(i == step)
-          return index;
-        return el;
-      }));
-      if(index == tasks[step].correct)
-        setScore(score+1);
-    }
-
-    setStep((step+1)%tasks.length);
-    console.log(answers);
-  }
-
-  const goBack = () => setStep((step-1+tasks.length)%tasks.length);*/
-
   const game = useSelector(state => state.game);  
-
-/*
-<Context.Provider value = {{
-      counter: [score, setScore],
-      steps: [step, setStep],
-      onClickVariant: onClickVariant,
-      goBack: goBack,
-      tasks: tasks,
-      answers: answers
-    }}>
-*/
-
   return (
     game.isInitialized ?
       <Begin/> :
