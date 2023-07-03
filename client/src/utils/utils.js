@@ -4,17 +4,8 @@ Array.prototype.random = function () {
   return this[Math.floor((Math.random()*this.length))];
 }
 
-const generateTasks = (tasksCount, answersCount) => {
-    const tasks = [];
-    for(let i = 0; i < tasksCount; i++) {
-      const answ = [];
-      for(var j = 0; j < answersCount; j++)
-        answ.push(namedColors.random());
-      tasks.push({
-        list: answ,
-        correct: Math.floor((Math.random()*answ.length))
-      });
-    }
-    return tasks;
-  }
+const generateTasks = (tasksCount, answersCount) => Array(tasksCount).fill().map(el => ({
+        list: Array(answersCount).fill().map(ans => namedColors.random()),
+        correct: Math.floor((Math.random()*answersCount))
+    }))
 export {generateTasks};
