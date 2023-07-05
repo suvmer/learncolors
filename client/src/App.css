@@ -45,6 +45,25 @@
   padding-top: 20px;
 }
 
+.stats {
+  padding-bottom: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.stats_bar {
+  display: flex;
+  gap: 30px;
+}
+.stats_colorbox {
+  width: 100px;
+  height: 100px;
+}
+.stats_textbox {
+  border: 3px solid #61dafb;
+  flex: 1;
+}
+
 .counter {
   position: absolute;
   top: 5vmin;
@@ -52,6 +71,12 @@
 }
 mark.yellow {
   color: #ffff00;
+}
+mark.red {
+  color: #ff0000;
+}
+mark.cross {
+  text-decoration: line-through;
 }
 
 h3 {
@@ -67,11 +92,12 @@ h3 {
   border-radius: 40px;
   cursor: pointer;
   user-select: none;
+  transition: background-color ease-in 100ms;
 }
-.button.green {
+.button.green, .button.green:hover {
   background-color: #00ff0060!important;
 }
-.button.red {
+.button.red, .button.red:hover {
   background-color: #ff000060!important;
 }
 .button:hover {
