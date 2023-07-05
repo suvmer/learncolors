@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
-import {useDispatch, useSelector} from "react-redux"; 
+import React, { useEffect, useState } from 'react';
 
 const ColorPicker = ({gameController, task, answered}) => {
   const [tip, setTip] = useState("Ответ");
@@ -16,7 +15,7 @@ const ColorPicker = ({gameController, task, answered}) => {
               key={ind}
               style={{backgroundColor: back ? element[0] : "#61dafb00", pointerEvents: answered == -1 ? 'all' : 'none'}}
               onClick={ () => { gameController.selectAnswer(ind); setBack(false); } }
-              className={`button small ${answered == ind ? (ind == task.correct ? 'green' : 'red') : ''}`}>
+              className={`button small button_light ${answered == ind ? (ind == task.correct ? 'green' : 'red') : ''}`}>
                 {element[1]}
             </div>
           )}

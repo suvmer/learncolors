@@ -46,7 +46,6 @@ const GamePage = () => {
     setGame({...(gameInfo ?? getDefaultGame()), answers: Array(QUESTIONS_COUNT).fill(-1), score: 0});
   }
 
-  console.log(game);
   return (
     <div className="main begin">
       {stage == 0 ?
