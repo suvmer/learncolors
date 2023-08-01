@@ -50,7 +50,7 @@ const GamePage = () => {
   const resetGame = (gameInfo = null) => {
     setStage(0);
     setStep(0);
-    setGame({...(gameInfo ?? getDefaultGame()), answers: Array(QUESTIONS_COUNT).fill(-1), score: 0});
+    setGame({...(gameInfo ?? getDefaultGame(isEng)), answers: Array(QUESTIONS_COUNT).fill(-1), score: 0});
   }
 
   return (
