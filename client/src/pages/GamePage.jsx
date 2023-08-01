@@ -58,7 +58,7 @@ const GamePage = () => {
       {stage == 0 ?
         <Modal onClose={() => setStage(1)}>
           Сейчас Вам предстоит угадать <mark className="yellow">{game.answers.length}</mark> цветов<br/><mark className="yellow">Готовы?</mark>
-          <div onClick={() => { switchToEng(); setStage(1); }} className='button small'>Играть на английском</div>
+          {isEng ? <div onClick={() => { switchToEng(); setStage(1); }} className='button small'>Играть на английском</div> : ""}
         </Modal> : ""
       }
       {stage != 2 ? //0, 1 stages
