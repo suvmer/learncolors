@@ -6,17 +6,24 @@ import { generateTasks } from '../utils/utils.js';
 import { ANSWERS_COUNT, AUTOTURN_PAGE_DELAY, QUESTIONS_COUNT } from '../config.js';
 import { Statistics } from './Staticstics.jsx';
 
-const getDefaultGame = () => ({
+const getDefaultGame = (isEng = false) => ({
   score: 0,
-  questions: generateTasks(QUESTIONS_COUNT, ANSWERS_COUNT),
+  questions: generateTasks(QUESTIONS_COUNT, ANSWERS_COUNT, isEng),
   answers: Array(QUESTIONS_COUNT).fill(-1), //for history
   timerId: -1 //for autoTurning page
 });
 const GamePage = () => {
   const [stage, setStage] = useState(0); //stages: 0 - greeting modal, 1 - in game, 2 - finished
   const [step, setStep] = useState(0);
-  const [game, setGame] = useState(getDefaultGame());
-  const [answered, correct] = [game.answers[step], game.questions[step].correct];
+  const [isEng, setEng] = useState(false);
+  const [game, setGame] = useState(getDefaultGame(isEng));
+  let [answered, correct] = [game.answers[step], game.questions[step].correct];
+  const switchToEng = () => {
+    setEng(true);
+    const newGame = getDefaultGame(true);
+    setGame(newGame);
+    [answered, correct] = [newGame.answers[step], newGame.questions[step].correct];
+  }
   const selectAnswer = (index) => {
     if(answered != -1) //already answered
       return;
@@ -51,6 +58,7 @@ const GamePage = () => {
       {stage == 0 ?
         <Modal onClose={() => setStage(1)}>
           Сейчас Вам предстоит угадать <mark className="yellow">{game.answers.length}</mark> цветов<br/><mark className="yellow">Готовы?</mark>
+          <div onClick={() => { switchToEng(); setStage(1); }} className='button small'>Играть на английском</div>
         </Modal> : ""
       }
       {stage != 2 ? //0, 1 stages

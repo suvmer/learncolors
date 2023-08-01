@@ -1,9 +1,9 @@
-import {namedColors} from '../resources/colors';
+import {namedColors, engColors} from '../resources/colors';
 
 const random = (arr) => arr[Math.floor((Math.random()*arr.length))];
 
-export const generateTasks = (tasksCount, answersCount) => Array(tasksCount).fill().map(el => ({
-        list: Array(answersCount).fill().map(ans => random(namedColors)),
+export const generateTasks = (tasksCount, answersCount, isEng = false) => Array(tasksCount).fill().map(el => ({
+        list: Array(answersCount).fill().map(ans => random(isEng ? engColors : namedColors)),
         correct: Math.floor((Math.random()*answersCount))
     }));
 
