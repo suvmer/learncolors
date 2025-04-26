@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/learncolors/static/css/main.d42d25d9.css",
+    "main.js": "/learncolors/static/js/main.85c1cf32.js",
+    "static/js/27.c6e192fa.chunk.js": "/learncolors/static/js/27.c6e192fa.chunk.js",
+    "index.html": "/learncolors/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.d42d25d9.css",
+    "static/js/main.85c1cf32.js"
+  ]
+}
